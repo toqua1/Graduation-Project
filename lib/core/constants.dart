@@ -3,17 +3,18 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppFonts {
   static String primaryFont = GoogleFonts.poppins().fontFamily ?? 'Poppins';
+  static String primaryBoldFont = 'Poppins';
 
   static TextStyle headline1 = TextStyle(
-    fontFamily: primaryFont,
+    fontFamily: primaryBoldFont,
     fontSize: 24,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
 
   static TextStyle headline2 = TextStyle(
-    fontFamily: primaryFont,
-    fontSize: 12,
+    fontFamily: primaryBoldFont,
+    fontSize: 15,
     fontWeight: FontWeight.w500,
     color: AppColors.primaryColor,
   );
@@ -69,7 +70,7 @@ class AppFonts {
 
   static TextStyle bodyTextExtraThinBlack = TextStyle(
     fontFamily: primaryFont,
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: FontWeight.w200,
     color: Colors.black,
   );
@@ -110,6 +111,13 @@ class AppFonts {
     color: Colors.white,
   );
 
+  static TextStyle bodyTextWhite2 = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: Colors.white,
+  );
+
   static TextStyle bodyTextWhiteLight = TextStyle(
     fontFamily: primaryFont,
     fontSize: 10,
@@ -124,7 +132,7 @@ class AppFonts {
     color: Colors.white.withOpacity(0.5),
   );
 
-  static TextStyle bodyTextWhite2 = TextStyle(
+  static TextStyle bodyTextWhiteLight3 = TextStyle(
     fontFamily: primaryFont,
     fontSize: 12,
     fontWeight: FontWeight.normal,
