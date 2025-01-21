@@ -18,11 +18,13 @@ class CardSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-          autoPlay: true,
-          aspectRatio: 90 / 38,
-          disableCenter: true,
-          viewportFraction: 0.1,
-          padEnds: false),
+        height: MediaQuery.of(context).size.height * 0.2,
+        autoPlay: true,
+        enableInfiniteScroll: false,
+        aspectRatio: 2,
+        disableCenter: true,
+        padEnds: false,
+      ),
       items: imageSliders,
     );
   }
