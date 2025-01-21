@@ -76,7 +76,7 @@ class AppFonts {
   );
 
   static TextStyle headlineTextBlack = TextStyle(
-    fontFamily: primaryFont,
+    fontFamily: primaryBoldFont,
     fontSize: 16,
     fontWeight: FontWeight.w500,
     /*semi bold */
