@@ -85,6 +85,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/core/Services/responsive_function.dart';
 import 'package:graduation_project/core/constants.dart';
+import 'package:graduation_project/features/Workouts/presentation/view/workouts_screen.dart';
 import 'package:graduation_project/features/home/presentation/view/home_screen.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -96,7 +97,7 @@ class HomeNavBar extends StatelessWidget {
 
   final List<Widget Function()> pageFactories = [
     () => HomeScreen(),
-    () => HomeScreen(),
+    () => WorkoutsScreen(),
     () => HomeScreen(),
     () => HomeScreen()
   ];
@@ -106,7 +107,7 @@ class HomeNavBar extends StatelessWidget {
     double iconSize = responsiveSize(context, 6.sw, 4.sw);
 
     return Scaffold(
-      extendBody: false,
+      extendBody: true,
       bottomNavigationBar: Obx(() {
         return Padding(
           padding: EdgeInsets.symmetric(

@@ -1,10 +1,10 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:graduation_project/features/home/presentation/view/widgets/articles_listView.dart';
-import 'dart:math';
 import 'package:graduation_project/features/home/presentation/view/widgets/card_slider.dart';
 import 'package:graduation_project/features/home/presentation/view/widgets/section_and_title.dart';
 import 'package:graduation_project/features/home/presentation/view/widgets/weekly_challenge.dart';
+import 'package:graduation_project/features/widgets/neumorphic_button_circle.dart';
 import 'widgets/neumorphic_reco_item.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       appBar: _buildAppBar(context),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.only(left: 16, top: 20, bottom: 10),
+          padding: const EdgeInsets.only(left: 16, top: 20, bottom: 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,27 +55,17 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       actions: [
-        _neumorphicIconButton(Icons.notifications, AppColors.primaryColor,
-            Theme.of(context).colorScheme.onTertiary),
+        NeumorphicCircleButton(
+            icon: Icons.notifications,
+            foreColor: AppColors.primaryColor,
+            backColor: Theme.of(context).colorScheme.onTertiary),
         const SizedBox(width: 10),
-        _neumorphicIconButton(Icons.person, AppColors.primaryColor,
-            Theme.of(context).colorScheme.onTertiary),
+        NeumorphicCircleButton(
+            icon: Icons.person,
+            foreColor: AppColors.primaryColor,
+            backColor: Theme.of(context).colorScheme.onTertiary),
         const SizedBox(width: 10),
       ],
-    );
-  }
-
-  Widget _neumorphicIconButton(
-      IconData icon, Color foreColor, Color backColor) {
-    return NeumorphicButton(
-      onPressed: () {},
-      style: NeumorphicStyle(
-          shape: NeumorphicShape.flat,
-          depth: 4,
-          boxShape: NeumorphicBoxShape.circle(),
-          color: backColor),
-      padding: const EdgeInsets.all(10),
-      child: Icon(icon, color: foreColor),
     );
   }
 
@@ -97,10 +87,10 @@ class HomeScreen extends StatelessWidget {
                   Positioned(
                     top: 80,
                     right: 15,
-                    child: _neumorphicIconButton(
-                      Icons.play_arrow_rounded,
-                      Colors.white,
-                      AppColors.secondaryColor,
+                    child: NeumorphicCircleButton(
+                      icon: Icons.play_arrow_rounded,
+                      foreColor: Colors.white,
+                      backColor: AppColors.secondaryColor,
                     ),
                   ),
                 ],
