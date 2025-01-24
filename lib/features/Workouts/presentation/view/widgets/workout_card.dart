@@ -27,7 +27,7 @@ class WorkoutCard extends StatelessWidget {
               'lib/assets/arm2.png',
               height: 100,
               width: 100,
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
             ),
             // const SizedBox(height: 8),
             Text(
