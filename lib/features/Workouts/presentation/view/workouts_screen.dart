@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:graduation_project/core/Services/is_tablet.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:graduation_project/features/Workouts/presentation/view/widgets/workout_card.dart';
 
@@ -43,7 +44,7 @@ class WorkoutsScreen extends StatelessWidget {
                     child: GridView.builder(
                       padding: const EdgeInsets.all(16),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
+                        crossAxisCount: isTablet(context) ? 3 : 2,
                         crossAxisSpacing: 16,
                         mainAxisSpacing: 16,
                         childAspectRatio: 1,

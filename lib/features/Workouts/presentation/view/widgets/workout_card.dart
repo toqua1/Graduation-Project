@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation_project/core/constants.dart';
+import 'package:graduation_project/features/Workouts/presentation/view/exercise_screen.dart';
 
 class WorkoutCard extends StatelessWidget {
   const WorkoutCard({super.key});
@@ -9,7 +10,10 @@ class WorkoutCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NeumorphicButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ExerciseScreen()));
+      },
       style: NeumorphicStyle(
         depth: -4,
         intensity: 4,
@@ -27,7 +31,7 @@ class WorkoutCard extends StatelessWidget {
               'lib/assets/arm2.png',
               height: 100,
               width: 100,
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
             ),
             // const SizedBox(height: 8),
             Text(
