@@ -5,13 +5,31 @@ import 'package:graduation_project/features/Workouts/presentation/view/intermedi
 import 'package:graduation_project/features/Workouts/presentation/view/widgets/toggle_bar.dart';
 import 'package:graduation_project/features/widgets/custom_app_bar.dart';
 
-class ExerciseScreen extends StatelessWidget {
+class ExerciseScreen extends StatefulWidget {
   const ExerciseScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    int selectedIndex = 0; // Default selected index
+  _ExerciseScreenState createState() => _ExerciseScreenState();
+}
 
+class _ExerciseScreenState extends State<ExerciseScreen> {
+  int selectedIndex = 0; // Track the selected index
+  late PageController _pageController; // PageView controller
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: selectedIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: NeumorphicTheme.baseColor(context),
       body: SafeArea(
@@ -21,14 +39,31 @@ class ExerciseScreen extends StatelessWidget {
             children: [
               CustomAppBar(),
               SizedBox(height: 20),
+
+              // Pass selectedIndex & callback function
               ToggleBar(
                 selectedIndex: selectedIndex,
+                onIndexChanged: (index) {
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                  _pageController.animateToPage(index,
+                      duration: Duration(milliseconds: 300),
+                      curve: Curves.easeInOut);
+                },
               ),
+
               SizedBox(height: 20),
-              // Different pages displayed based on the selected toggle
+
+              // PageView with Swipe Support
               Expanded(
-                child: IndexedStack(
-                  index: selectedIndex,
+                child: PageView(
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() {
+                      selectedIndex = index; // Sync toggle with swipe
+                    });
+                  },
                   children: [
                     BegginerPage(),
                     IntermediatePage(),
