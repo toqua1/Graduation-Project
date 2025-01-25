@@ -2,15 +2,13 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:graduation_project/core/Services/responsive_function.dart';
 import 'package:graduation_project/core/constants.dart';
 
-class ToggleBar extends StatefulWidget {
-  ToggleBar({super.key, required this.selectedIndex});
-  int selectedIndex;
+class ToggleBar extends StatelessWidget {
+  final int selectedIndex;
+  final ValueChanged<int> onIndexChanged; // Callback function
 
-  @override
-  State<ToggleBar> createState() => _ToggleBarState();
-}
+  ToggleBar(
+      {super.key, required this.selectedIndex, required this.onIndexChanged});
 
-class _ToggleBarState extends State<ToggleBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +16,7 @@ class _ToggleBarState extends State<ToggleBar> {
       child: NeumorphicToggle(
         height: responsiveSize(context, 60, 70),
         width: double.infinity,
-        selectedIndex: widget.selectedIndex,
+        selectedIndex: selectedIndex,
         style: NeumorphicToggleStyle(
           depth: -5,
           borderRadius: const BorderRadius.all(Radius.circular(25)),
@@ -26,39 +24,27 @@ class _ToggleBarState extends State<ToggleBar> {
         displayForegroundOnlyIfSelected: true,
         children: [
           ToggleElement(
-            background: Center(
-              child: Text('Beginner'),
-            ),
+            background: Center(child: Text('Beginner')),
             foreground: Center(
-              child: Text(
-                'Beginner',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
+              child: Text('Beginner',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold)),
             ),
           ),
           ToggleElement(
-            background: Center(
-              child: Text('Intermediate'),
-            ),
+            background: Center(child: Text('Intermediate')),
             foreground: Center(
-              child: Text(
-                'Intermediate',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
+              child: Text('Intermediate',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold)),
             ),
           ),
           ToggleElement(
-            background: Center(
-              child: Text('Advanced'),
-            ),
+            background: Center(child: Text('Advanced')),
             foreground: Center(
-              child: Text(
-                'Advanced',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
+              child: Text('Advanced',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold)),
             ),
           ),
         ],
@@ -71,22 +57,19 @@ class _ToggleBarState extends State<ToggleBar> {
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    AppColors.primaryColor,
-                    Colors.teal.shade400,
-                    Colors.lime.shade400,
-                    AppColors.secondaryColor,
-                  ]),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppColors.primaryColor,
+                  Colors.teal.shade400,
+                  Colors.lime.shade400,
+                  AppColors.secondaryColor,
+                ],
+              ),
             ),
           ),
         ),
-        onChanged: (index) {
-          setState(() {
-            widget.selectedIndex = index;
-          });
-        },
+        onChanged: onIndexChanged, // Calls the callback when tapped
       ),
     );
   }
