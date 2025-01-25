@@ -6,7 +6,7 @@ class ToggleBar extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onIndexChanged; // Callback function
 
-  ToggleBar(
+  const ToggleBar(
       {super.key, required this.selectedIndex, required this.onIndexChanged});
 
   @override
