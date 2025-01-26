@@ -85,6 +85,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graduation_project/core/Services/responsive_function.dart';
 import 'package:graduation_project/core/constants.dart';
+import 'package:graduation_project/features/Community/presentation/view/home_community.dart';
+import 'package:graduation_project/features/Favourites/presentation/view/favourite_screen.dart';
 import 'package:graduation_project/features/Workouts/presentation/view/workouts_screen.dart';
 import 'package:graduation_project/features/home/presentation/view/home_screen.dart';
 import 'package:iconsax/iconsax.dart';
@@ -98,8 +100,8 @@ class HomeNavBar extends StatelessWidget {
   final List<Widget Function()> pageFactories = [
     () => HomeScreen(),
     () => WorkoutsScreen(),
-    () => HomeScreen(),
-    () => HomeScreen()
+    () => FavouriteScreen(),
+    () => HomeCommunity()
   ];
 
   @override

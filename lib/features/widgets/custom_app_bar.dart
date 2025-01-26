@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget {
           child: const Icon(Icons.arrow_back_ios_new_rounded,
               color: AppColors.primaryColor),
           onPressed: () {
-            // Action for back button
+            Navigator.pop(context);
           },
         ),
 
