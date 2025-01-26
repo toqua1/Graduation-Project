@@ -25,7 +25,7 @@ class ArticleCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
               image: DecorationImage(
-                image: AssetImage('lib/assets/img2.jpg'),
+                image: AssetImage('lib/assets/nutritionFav.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
