@@ -52,7 +52,7 @@ class WarmUpSection extends StatelessWidget {
               alignment: Alignment.topRight,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Icon(Icons.favorite_border, color: Colors.white),
+                child: Icon(Icons.favorite_border, color: Colors.black),
               ),
             ),
           ],

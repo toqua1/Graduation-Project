@@ -9,22 +9,24 @@ class PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NeumorphicButton(
-      padding:
-          EdgeInsets.zero, // Ensure it does not interfere with the container
+      padding: EdgeInsets.zero,
       onPressed: () {},
-      style: NeumorphicStyle(depth: 0, boxShape: NeumorphicBoxShape.circle()),
+      style: NeumorphicStyle(depth: 4, boxShape: NeumorphicBoxShape.circle()),
       child: Container(
           width: 30,
           height: 30,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                AppColors.primaryColor,
-                AppColors.secondaryColor,
-              ],
-            ),
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppColors.primaryColor,
+                  AppColors.secondaryColor,
+                ],
+                stops: [
+                  0.1,
+                  0.9
+                ]),
           ),
           child: Center(
             child: Icon(
