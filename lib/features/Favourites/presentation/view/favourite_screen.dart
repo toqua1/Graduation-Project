@@ -99,11 +99,7 @@ class FavouriteScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text("Create New Collection",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.teal)),
+              Text("Create New Collection", style: AppFonts.primarySemibold),
               const SizedBox(height: 15),
 
               // Neumorphic TextField
