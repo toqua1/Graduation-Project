@@ -34,7 +34,7 @@ class AppFonts {
   );
 
   static TextStyle primarySemibold = TextStyle(
-    fontFamily: primaryFont,
+    fontFamily: primaryBoldFont,
     fontSize: 20,
     fontWeight: FontWeight.w500,
     color: AppColors.primaryColor,
