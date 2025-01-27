@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/constants.dart';
-import 'package:lottie/lottie.dart';
 
 class IntermediatePage extends StatelessWidget {
   const IntermediatePage({super.key});
