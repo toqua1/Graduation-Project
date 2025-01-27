@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:graduation_project/core/constants.dart';
+import 'package:graduation_project/features/Favourites/presentation/view/widgets/favourite_grid_view.dart';
+import 'package:graduation_project/features/Favourites/presentation/view/widgets/neumorphic_add_button.dart';
+import 'package:graduation_project/features/Favourites/presentation/view/widgets/neumorphic_text_field.dart';
 
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
@@ -27,7 +29,7 @@ class FavouriteScreen extends StatelessWidget {
               depth: -4,
               intensity: 0.8,
               shape: NeumorphicShape.flat,
-              color: Colors.white,
+              color: NeumorphicTheme.baseColor(context),
               boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
             ),
             padding: const EdgeInsets.all(6),
@@ -50,95 +52,52 @@ class FavouriteScreen extends StatelessWidget {
       {"image": "lib/assets/nutritionFav.jpg", "title": "Healthy"},
     ];
 
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: GridView.builder(
-        itemCount: collections.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 0,
-          childAspectRatio: 1,
-        ),
-        itemBuilder: (context, index) {
-          return Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  collections[index]["image"]!,
-                  fit: BoxFit.cover,
-                  height: 150,
-                  width: 150,
-                ),
-              ),
-              const SizedBox(height: 5),
-              Text(collections[index]["title"]!,
-                  style: AppFonts.bodyTextRegularBlack),
-            ],
-          );
-        },
-      ),
-    );
+    return FavouriteGridView(collections: collections);
   }
 
-  /// 🔹 Neumorphic Bottom Sheet for Adding a New Collection
+  //Neumorphic Bottom Sheet for Adding a New Collection
   void _showAddCollectionBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // Allows full height
-      backgroundColor:
-          Colors.transparent, // Transparent to allow Neumorphic look
+      isScrollControlled: true, // Allows the full height adjustment
+      backgroundColor: NeumorphicTheme.baseColor(context),
+      shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(60)),
       builder: (context) {
-        return Container(
-          padding: const EdgeInsets.all(20),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("Create New Collection", style: AppFonts.primarySemibold),
-              const SizedBox(height: 15),
+        return GestureDetector(
+          onTap: () => FocusScope.of(context)
+              .unfocus(), // Dismiss keyboard when tapping outside
+          child: Padding(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context)
+                  .viewInsets
+                  .bottom, // Adjust for keyboard
+            ),
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: NeumorphicTheme.baseColor(context),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(60)),
+              ),
+              child: SingleChildScrollView(
+                // Makes the bottom sheet scrollable
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text("Create New Collection",
+                        style: AppFonts.primarySemibold),
+                    const SizedBox(height: 60),
 
-              // Neumorphic TextField
-              Neumorphic(
-                style: NeumorphicStyle(
-                  depth: -4,
-                  intensity: 0.8,
-                  color: Colors.white,
-                  boxShape:
-                      NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Enter Collection Name",
-                      border: InputBorder.none,
-                    ),
-                  ),
+                    // Neumorphic TextField
+                    NeumorphicTextField(),
+                    const SizedBox(height: 15),
+
+                    // Neumorphic Add Button
+                    NeumorphicAddButton(),
+                    const SizedBox(height: 15),
+                  ],
                 ),
               ),
-              const SizedBox(height: 15),
-
-              // Neumorphic Add Button
-              NeumorphicButton(
-                style: NeumorphicStyle(
-                  depth: 4,
-                  intensity: 0.8,
-                  color: Colors.white,
-                  boxShape: NeumorphicBoxShape.circle(),
-                ),
-                padding: const EdgeInsets.all(15),
-                child: const Icon(Icons.check, color: Colors.teal, size: 28),
-                onPressed: () {
-                  Navigator.pop(context); // Close Bottom Sheet
-                },
-              ),
-              const SizedBox(height: 15),
-            ],
+            ),
           ),
         );
       },
