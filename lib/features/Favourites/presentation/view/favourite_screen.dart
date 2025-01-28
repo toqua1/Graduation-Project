@@ -61,7 +61,6 @@ class FavouriteScreen extends StatelessWidget {
       context: context,
       isScrollControlled: true, // Allows the full height adjustment
       backgroundColor: NeumorphicTheme.baseColor(context),
-      shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(60)),
       builder: (context) {
         return GestureDetector(
           onTap: () => FocusScope.of(context)
