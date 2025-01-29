@@ -29,7 +29,7 @@ class AppFonts {
   static TextStyle primaryBodyText = TextStyle(
     fontFamily: primaryFont,
     fontSize: 14,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
     color: AppColors.primaryColor,
   );
 
@@ -44,7 +44,7 @@ class AppFonts {
     fontFamily: primaryFont,
     fontSize: 10,
     fontWeight: FontWeight.w200,
-    color: AppColors.blackColor,
+    color: AppColors.subtitleColor,
   );
 
   static TextStyle bodyTextBold = TextStyle(
@@ -58,21 +58,21 @@ class AppFonts {
     fontFamily: primaryFont,
     fontSize: 14,
     fontWeight: FontWeight.w400,
-    color: Colors.black,
+    color: AppColors.textColor,
   );
 
   static TextStyle bodyTextRegularBlack = TextStyle(
     fontFamily: primaryFont,
     fontSize: 15,
     fontWeight: FontWeight.normal,
-    color: Colors.black,
+    color: AppColors.textColor,
   );
 
   static TextStyle bodyTextExtraThinBlack = TextStyle(
     fontFamily: primaryFont,
     fontSize: 12,
     fontWeight: FontWeight.w200,
-    color: Colors.black,
+    color: AppColors.textColor,
   );
 
   static TextStyle headlineTextBlack = TextStyle(
@@ -80,21 +80,21 @@ class AppFonts {
     fontSize: 16,
     fontWeight: FontWeight.w500,
     /*semi bold */
-    color: Colors.black,
+    color: AppColors.textColor,
   );
 
   static TextStyle bodyTextBlack = TextStyle(
     fontFamily: primaryFont,
     fontSize: 16,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: AppColors.textColor,
   );
 
   static TextStyle navText = TextStyle(
     fontFamily: primaryFont,
     fontSize: 10,
     fontWeight: FontWeight.normal,
-    color: Colors.black,
+    color: AppColors.textColor,
   );
 
   static TextStyle bodyTextBoldWhite = TextStyle(
@@ -188,8 +188,10 @@ class AppColors {
   static const Color secondaryColor = Color(0xffE2F163);
   static const Color textLightColor = Color(0xffB1B0B2);
   static const Color backgroundColor = Color(0xffF7F6FA);
-  static const Color textColor = Colors.black;
+  static const Color textColor = Color(0xff1D1617);
   static const Color subtitleColor = Color(0xff6D6C6E);
   static const Color blackColor = Color(0xff212020);
   static const Color blackColor2 = Color(0xff2A282F);
+  static const Color bottomSheetColor = Color(0xffF5F5FA);
+  static const Color bottomSheetItemColor = Color(0xffEBECF0);
 }
