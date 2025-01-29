@@ -1,9 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/services.dart';
 import 'package:graduation_project/core/constants.dart';
-import 'package:graduation_project/features/home/presentation/view/home_screen.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/features/widgets/nav_bar.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
