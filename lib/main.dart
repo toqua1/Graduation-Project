@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:graduation_project/features/widgets/nav_bar.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init(); // Initialize storage
 
   runApp(
     DevicePreview(
