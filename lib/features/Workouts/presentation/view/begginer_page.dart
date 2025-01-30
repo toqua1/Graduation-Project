@@ -1,7 +1,7 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:graduation_project/core/Services/responsive_function.dart';
 import 'package:graduation_project/core/constants.dart';
-import 'package:graduation_project/features/Workouts/exercise_item_screen.dart';
+import 'package:graduation_project/features/Workouts/presentation/view/exercise_item_screen.dart';
 import 'package:graduation_project/features/Workouts/presentation/view/widgets/play_button.dart';
 import 'package:graduation_project/features/Workouts/presentation/view/widgets/warm_up_section.dart';
 

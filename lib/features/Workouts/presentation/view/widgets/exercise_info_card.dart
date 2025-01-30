@@ -68,7 +68,7 @@ class ExerciseInfoCard extends StatelessWidget {
                   title: 'Secondary Muscles', value: 'Arms, Shoulders'),
             ],
           ),
-          SizedBox(height: size.height * 0.05),
+          SizedBox(height: size.height * responsiveSize(context, 0.05, 0.03)),
           SlideToGoButton(),
         ],
       ),
