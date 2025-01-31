@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/Services/is_tablet.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hintText;
+  final double height;
   // final TextEditingController controller;
   final IconData? icon;
   final bool obscureText;
@@ -18,6 +20,7 @@ class CustomTextField extends StatefulWidget {
     this.obscureText = false,
     this.validator,
     this.onChangedCallback,
+    required this.height,
   });
 
   @override
@@ -41,7 +44,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         hintText: widget.hintText,
         fillColor: AppColors.textFieldFillColor,
         filled: true,
-        hintStyle: AppFonts.textFieldHint,
+        hintStyle: AppFonts.textFieldHint.copyWith(
+          fontSize: isTablet(context) ? widget.height * 0.015 : null,
+        ),
         prefixIcon: widget.icon != null ? Icon(widget.icon) : null,
         prefixIconColor: Colors.grey,
         border: OutlineInputBorder(

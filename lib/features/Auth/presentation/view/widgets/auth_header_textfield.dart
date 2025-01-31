@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/Services/is_tablet.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/custom_textfild_auth.dart';
 
@@ -23,10 +24,9 @@ class AuthHeaderTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          header,
-          style: AppFonts.textFieldTitle,
-        ),
+        Text(header,
+            style: AppFonts.textFieldTitle
+                .copyWith(fontSize: isTablet(context) ? height * 0.02 : null)),
         SizedBox(
           height: height * 0.01,
         ),
@@ -34,6 +34,7 @@ class AuthHeaderTextField extends StatelessWidget {
           hintText: hint,
           icon: icon,
           obscureText: obscureText,
+          height: height,
         ),
       ],
     );
