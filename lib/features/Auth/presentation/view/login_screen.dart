@@ -1,6 +1,7 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:graduation_project/core/Services/is_tablet.dart';
 import 'package:graduation_project/core/Services/responsive_function.dart';
+import 'package:graduation_project/features/Auth/presentation/view/sign_up_screen.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/auth_button.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/auth_header_textfield.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/auth_top_header.dart';
@@ -75,6 +76,7 @@ class LoginScreen extends StatelessWidget {
                       horizontal: isTablet(context) ? width * 0.1 : 0),
                   child: AuthButton(
                     height: height,
+                    text: 'Login',
                   ),
                 ),
                 SizedBox(
@@ -89,7 +91,10 @@ class LoginScreen extends StatelessWidget {
                   height: height * 0.03,
                 ),
                 HaveAccountSection(
+                  txt1: 'Don’t have an account yet? ',
+                  txt2: 'Register',
                   height: height,
+                  screen: SignUpScreen(),
                 ),
               ],
             ),

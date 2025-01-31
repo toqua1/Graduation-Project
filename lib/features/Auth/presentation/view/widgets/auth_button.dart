@@ -6,8 +6,10 @@ class AuthButton extends StatelessWidget {
   const AuthButton({
     super.key,
     required this.height,
+    required this.text,
   });
   final double height;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class AuthButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            'Login',
+            text,
             style: AppFonts.loginTextButton.copyWith(
               fontSize: isTablet(context) ? height * 0.025 : null,
             ),
