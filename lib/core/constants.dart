@@ -53,6 +53,21 @@ class AppFonts {
     fontWeight: FontWeight.w500,
     color: AppColors.blackColor2,
   );
+//login screen
+  static TextStyle textFieldTitle = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    /*semiBold */
+    color: AppColors.textColor,
+  );
+//login
+  static TextStyle loginOrText = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: AppColors.textColor,
+  );
 
   static TextStyle bodyTextMediumBlack = TextStyle(
     fontFamily: primaryFont,
@@ -60,7 +75,7 @@ class AppFonts {
     fontWeight: FontWeight.w400,
     color: AppColors.textColor,
   );
-
+//login
   static TextStyle bodyTextRegularBlack = TextStyle(
     fontFamily: primaryFont,
     fontSize: 15,
@@ -94,6 +109,13 @@ class AppFonts {
     fontFamily: primaryFont,
     fontSize: 10,
     fontWeight: FontWeight.normal,
+    color: AppColors.textColor,
+  );
+//login screen
+  static TextStyle boldTextColor = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
     color: AppColors.textColor,
   );
 
@@ -152,6 +174,13 @@ class AppFonts {
     fontWeight: FontWeight.w400,
     color: Colors.white,
   );
+  //login
+  static TextStyle loginTextButton = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
 
   static TextStyle bodyTextLight1 = TextStyle(
     fontFamily: primaryFont,
@@ -181,6 +210,20 @@ class AppFonts {
     fontWeight: FontWeight.normal,
     color: AppColors.subtitleColor,
   );
+  //login screen
+  static TextStyle textFieldHint = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: AppColors.loginGreyColor,
+  );
+  static TextStyle textFieldForgetPass = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    /*Medium */
+    color: AppColors.loginGreyColor,
+  );
 }
 
 class AppColors {
@@ -194,4 +237,6 @@ class AppColors {
   static const Color blackColor2 = Color(0xff2A282F);
   static const Color bottomSheetColor = Color(0xffF5F5FA);
   static const Color bottomSheetItemColor = Color(0xffEBECF0);
+  static const Color loginGreyColor = Color(0xffADA4A5);
+  static Color textFieldFillColor = Colors.grey.shade200;
 }
