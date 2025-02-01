@@ -7,29 +7,34 @@ class AuthButton extends StatelessWidget {
     super.key,
     required this.height,
     required this.text,
+    this.method,
   });
   final double height;
   final String text;
+  final void Function()? method;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Container(
-        height: height * 0.07,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Color(0xff14919B), Colors.limeAccent]),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: AppFonts.loginTextButton.copyWith(
-              fontSize: isTablet(context) ? height * 0.025 : null,
+      child: GestureDetector(
+        onTap: method,
+        child: Container(
+          height: height * 0.07,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xff14919B), Colors.limeAccent]),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: AppFonts.loginTextButton.copyWith(
+                fontSize: isTablet(context) ? height * 0.025 : null,
+              ),
             ),
           ),
         ),

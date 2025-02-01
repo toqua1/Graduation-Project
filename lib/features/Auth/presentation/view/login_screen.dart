@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                         obscureText: true,
                       ),
                       SizedBox(
-                        height: height * 0.01,
+                        height: height * 0.0009,
                       ),
                       ForgetPass(
                         height: height,
