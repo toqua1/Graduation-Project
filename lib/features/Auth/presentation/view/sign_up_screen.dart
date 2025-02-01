@@ -71,9 +71,6 @@ class SignUpScreen extends StatelessWidget {
                       SizedBox(
                         height: height * 0.01,
                       ),
-                      ForgetPass(
-                        height: height,
-                      ),
                       SizedBox(
                         height: height * 0.07,
                       ),

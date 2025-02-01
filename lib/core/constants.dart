@@ -119,6 +119,13 @@ class AppFonts {
     color: AppColors.textColor,
   );
 
+  static TextStyle boldTextForgetColor = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    color: AppColors.textColor,
+  );
+
   static TextStyle bodyTextBoldWhite = TextStyle(
     fontFamily: primaryFont,
     fontSize: 16,
