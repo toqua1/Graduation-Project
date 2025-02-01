@@ -9,22 +9,19 @@ class HaveAccountSection extends StatelessWidget {
     required this.height,
     required this.txt1,
     required this.txt2,
-    required this.screen,
+    this.method,
   });
   final double height;
   final String txt1;
   final String txt2;
-  final Widget screen;
+  final void Function()? method;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => screen));
-          },
+          onPressed: method,
           child: RichText(
             text: TextSpan(
               children: [
