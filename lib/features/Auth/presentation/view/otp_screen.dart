@@ -2,6 +2,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:graduation_project/core/Services/is_tablet.dart';
 import 'package:graduation_project/core/Services/responsive_function.dart';
 import 'package:graduation_project/core/constants.dart';
+import 'package:graduation_project/features/Auth/presentation/view/create_new_pass_screen.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/auth_back_button.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/auth_button.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/have_account_section.dart';
@@ -83,8 +84,10 @@ class OtpScreen extends StatelessWidget {
                     child: AuthButton(
                       height: height,
                       text: 'Verify',
-                      method: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => OtpScreen())),
+                      method: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CreateNewPassScreen())),
                     ),
                   )
                 ])),
