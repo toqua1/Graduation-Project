@@ -9,6 +9,7 @@ import 'package:graduation_project/features/Auth/presentation/view/widgets/forge
 import 'package:graduation_project/features/Auth/presentation/view/widgets/have_account_section.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/or_divider.dart';
 import 'package:graduation_project/features/Auth/presentation/view/widgets/social_icons_row.dart';
+import 'package:graduation_project/features/home/presentation/view/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -77,6 +78,8 @@ class LoginScreen extends StatelessWidget {
                   child: AuthButton(
                     height: height,
                     text: 'Login',
+                    method: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen())),
                   ),
                 ),
                 SizedBox(

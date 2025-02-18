@@ -119,7 +119,7 @@ class CreateNewPassScreen extends StatelessWidget {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => LoginScreen()),
-          (route) => false); // Navigate to Login screen
+          (route) => false);
     });
   }
 }
