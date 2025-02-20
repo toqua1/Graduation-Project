@@ -5,6 +5,60 @@ class AppFonts {
   static String primaryFont = GoogleFonts.poppins().fontFamily ?? 'Poppins';
   static String primaryBoldFont = 'Poppins';
 
+  //login screen
+  static TextStyle textFieldTitle = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    /*semiBold */
+    color: AppColors.textColor,
+  );
+//login
+  static TextStyle loginOrText = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: AppColors.textColor,
+  );
+
+//login
+  static TextStyle loginTextButton = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+
+//login screen
+  static TextStyle textFieldHint = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: AppColors.loginGreyColor,
+  );
+  static TextStyle textFieldForgetPass = TextStyle(
+    fontFamily: primaryFont,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    /*Medium */
+    color: AppColors.loginGreyColor,
+  );
+
+//login screen
+  static TextStyle boldTextColor = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.textColor,
+  );
+
+  static TextStyle boldTextForgetColor = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    color: AppColors.textColor,
+  );
+
   static TextStyle headline1 = TextStyle(
     fontFamily: primaryBoldFont,
     fontSize: 24,
@@ -194,4 +248,6 @@ class AppColors {
   static const Color blackColor2 = Color(0xff2A282F);
   static const Color bottomSheetColor = Color(0xffF5F5FA);
   static const Color bottomSheetItemColor = Color(0xffEBECF0);
+  static const Color loginGreyColor = Color(0xffADA4A5);
+  static Color textFieldFillColor = Colors.grey.shade200;
 }
