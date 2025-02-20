@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/services.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:graduation_project/features/Setup/presentation/view/setup_first_screen.dart';
 import 'package:graduation_project/features/widgets/nav_bar.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
             lightSource: LightSource.topLeft,
             depth: 6,
           ),
-          home: HomeNavBar(),
+          home: SetUpScreen(),
           debugShowCheckedModeBanner: false,
         );
       },

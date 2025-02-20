@@ -90,6 +90,20 @@ class AppFonts {
     color: AppColors.textColor,
   );
 
+  static TextStyle setupButtonBlack = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: AppColors.textColor,
+  );
+
+  static TextStyle setupBlack = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 28,
+    fontWeight: FontWeight.w500,
+    color: AppColors.textColor,
+  );
+
   static TextStyle navText = TextStyle(
     fontFamily: primaryFont,
     fontSize: 10,
