@@ -1,56 +1,68 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_ruler_picker/flutter_ruler_picker.dart';
+import 'package:graduation_project/core/Services/is_tablet.dart';
+import 'package:graduation_project/core/constants.dart';
+import 'package:graduation_project/features/Setup/presentation/view/height_screen.dart';
+import 'package:graduation_project/features/Setup/presentation/view/widgets/app_bar.dart';
+import 'package:graduation_project/features/Setup/presentation/view/widgets/setup_button.dart';
 
-import 'height_screen.dart';
-
-class WeightScreen extends StatefulWidget {
-  const WeightScreen({super.key});
+class WeightSelectionScreen extends StatefulWidget {
+  const WeightSelectionScreen({super.key});
 
   @override
-  State<WeightScreen> createState() => _WeightScreenState();
+  // ignore: library_private_types_in_public_api
+  _WeightSelectionScreenState createState() => _WeightSelectionScreenState();
 }
 
-class _WeightScreenState extends State<WeightScreen> {
-  int _weight = 75;
+class _WeightSelectionScreenState extends State<WeightSelectionScreen> {
+  double selectedWeight = 75.0;
+
+  List<RulerRange> ranges = const [
+    RulerRange(begin: 0, end: 10, scale: 0.1),
+    RulerRange(begin: 10, end: 100, scale: 1),
+    RulerRange(begin: 100, end: 1000, scale: 10),
+    RulerRange(begin: 1000, end: 10000, scale: 100),
+    RulerRange(begin: 10000, end: 100000, scale: 1000)
+  ];
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    var size = MediaQuery.of(context).size;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('What is Your Weight?'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            const Spacer(),
-            Text(
-              '$_weight kg',
-              style: Theme.of(context).textTheme.displayLarge,
+      backgroundColor: NeumorphicTheme.baseColor(context),
+      appBar: SetUpAppBar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            "What Is Your Weight?",
+            style: AppFonts.setupHeader.copyWith(
+                fontSize: isTablet(context) ? screenHeight * 0.037 : null),
+          ),
+          SizedBox(height: isTablet(context) ? 50 : 30),
+          RulerPicker(
+            controller: RulerPickerController(value: selectedWeight),
+            onValueChanged: (value) =>
+                setState(() => selectedWeight = value.toDouble()),
+            width: MediaQuery.of(context).size.width,
+            height: 80,
+            onBuildRulerScaleText: (int index, num rulerScaleValue) {
+              return rulerScaleValue.toInt().toString();
+            },
+            ranges: ranges,
+          ),
+          SizedBox(height: 30),
+          SetupButton(
+            size: size,
+            text: 'Continue',
+            method: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HeightSelectionScreen()),
             ),
-            Slider(
-              value: _weight.toDouble(),
-              min: 40,
-              max: 150,
-              divisions: 110,
-              label: _weight.toString(),
-              onChanged: (value) {
-                setState(() {
-                  _weight = value.toInt();
-                });
-              },
-            ),
-            const Spacer(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HeightScreen()),
-                );
-              },
-              child: const Text('Continue'),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,55 +1,134 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:graduation_project/core/Services/is_tablet.dart';
+import 'package:graduation_project/core/constants.dart';
 import 'package:graduation_project/features/Setup/presentation/view/weight_screen.dart';
+import 'package:graduation_project/features/Setup/presentation/view/widgets/app_bar.dart';
+import 'package:graduation_project/features/Setup/presentation/view/widgets/setup_button.dart';
+import 'package:iconsax/iconsax.dart';
 
-class AgeScreen extends StatefulWidget {
-  const AgeScreen({super.key});
+class AgeSelectionScreen extends StatefulWidget {
+  const AgeSelectionScreen({super.key});
 
   @override
-  State<AgeScreen> createState() => _AgeScreenState();
+  // ignore: library_private_types_in_public_api
+  _AgeSelectionScreenState createState() => _AgeSelectionScreenState();
 }
 
-class _AgeScreenState extends State<AgeScreen> {
-  int _age = 28;
+class _AgeSelectionScreenState extends State<AgeSelectionScreen> {
+  int selectedAge = 10;
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    var size = MediaQuery.of(context).size;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('How Old Are You?'),
-      ),
+      backgroundColor: NeumorphicTheme.baseColor(context),
+      appBar: SetUpAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.symmetric(horizontal: isTablet(context) ? 40 : 20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Spacer(),
             Text(
-              '$_age',
-              style: Theme.of(context).textTheme.displayLarge,
+              "How Old Are You?",
+              style: AppFonts.setupHeader.copyWith(
+                  fontSize: isTablet(context) ? screenHeight * 0.037 : null),
             ),
-            Slider(
-              value: _age.toDouble(),
-              min: 18,
-              max: 100,
-              divisions: 82,
-              label: _age.toString(),
-              onChanged: (value) {
-                setState(() {
-                  _age = value.toInt();
-                });
-              },
+            SizedBox(height: isTablet(context) ? 50 : 30),
+            Column(
+              children: [
+                Text(
+                  "$selectedAge",
+                  style: AppFonts.setupHeaderAge.copyWith(
+                      fontSize: isTablet(context) ? screenHeight * 0.1 : null),
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: size.width * 0.45,
+                    ),
+                    Icon(
+                      Iconsax.arrow_up_15,
+                      size: isTablet(context) ? 80 : 50,
+                      color: AppColors.secondaryColor,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                _agePicker(isTablet(context)),
+              ],
             ),
-            const Spacer(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const WeightScreen()),
-                );
-              },
-              child: const Text('Continue'),
-            ),
+            SizedBox(height: isTablet(context) ? 50 : 30),
+            SetupButton(
+              text: 'Continue',
+              size: size,
+              method: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => WeightSelectionScreen()),
+              ),
+            )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _agePicker(bool isTablet) {
+    return Container(
+      height: isTablet ? 150 : 100,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 100,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () => setState(() => selectedAge = index + 10),
+            child: Container(
+              width: isTablet ? 100 : 60,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: selectedAge == index + 10
+                    ? AppColors.primaryColor
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: Text(
+                "${index + 10}",
+                style: TextStyle(
+                  fontSize: isTablet ? 35 : 18,
+                  fontFamily: AppFonts.primaryBoldFont,
+                  color:
+                      selectedAge == index + 10 ? Colors.white : Colors.black,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _continueButton(bool isTablet) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        shadowColor: Colors.black26,
+        elevation: 5,
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WeightSelectionScreen()),
+        );
+      },
+      child: Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: 40, vertical: isTablet ? 20 : 15),
+        child: Text("Continue",
+            style:
+                TextStyle(color: Colors.black, fontSize: isTablet ? 20 : 16)),
       ),
     );
   }

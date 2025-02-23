@@ -61,6 +61,20 @@ class AppFonts {
     color: AppColors.textColor,
   );
 
+  static TextStyle setupHeader = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textColor,
+  );
+
+  static TextStyle setupHeaderAge = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 64,
+    fontWeight: FontWeight.bold,
+    color: AppColors.textColor,
+  );
+
   static TextStyle bodyTextRegularBlack = TextStyle(
     fontFamily: primaryFont,
     fontSize: 15,
@@ -194,6 +208,13 @@ class AppFonts {
     fontSize: 12.0,
     fontWeight: FontWeight.normal,
     color: AppColors.subtitleColor,
+  );
+
+  static TextStyle setupAppBar = TextStyle(
+    fontFamily: primaryBoldFont,
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    color: AppColors.secondaryColor,
   );
 }
 

@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:graduation_project/core/Services/is_tablet.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:graduation_project/features/Setup/presentation/view/gender_screen.dart';
+
+import 'widgets/setup_button.dart';
 
 class SetUpScreen extends StatelessWidget {
   const SetUpScreen({super.key});
@@ -13,6 +14,7 @@ class SetUpScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: NeumorphicTheme.baseColor(context),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -28,33 +30,25 @@ class SetUpScreen extends StatelessWidget {
                 ),
                 Text(
                   'Your Fitness Journey Starts Here!',
-                  style: AppFonts.setupBlack,
+                  style: AppFonts.setupBlack.copyWith(
+                      fontSize: isTablet(context) ? size.height * 0.045 : null),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: isTablet(context) ? 40 : 20),
                 Text(
                   'Complete your profile to unlock a custom workout plan & rewards!',
-                  style: AppFonts.tabTextInactive,
+                  style: AppFonts.tabTextInactive.copyWith(
+                      fontSize: isTablet(context) ? size.height * 0.015 : null),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: isTablet(context) ? 150 : 90),
-                NeumorphicButton(
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                  style: NeumorphicStyle(
-                      depth: 5,
-                      boxShape: NeumorphicBoxShape.roundRect(
-                          BorderRadius.circular(100))),
-                  onPressed: () {
-                    Navigator.push(
+                SetupButton(
+                  size: size,
+                  text: 'Next',
+                  method: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const GenderScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Next',
-                    style: AppFonts.setupButtonBlack,
-                  ),
+                          builder: (context) => GenderSelectionScreen())),
                 ),
               ],
             ),

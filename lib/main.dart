@@ -7,6 +7,8 @@ import 'package:graduation_project/features/widgets/nav_bar.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'features/Workouts/presentation/view/pose_detector_page.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init(); // Initialize storage
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
             lightSource: LightSource.topLeft,
             depth: 6,
           ),
-          home: SetUpScreen(),
+          home: PoseDetectorPage(),
           debugShowCheckedModeBanner: false,
         );
       },
