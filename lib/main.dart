@@ -2,10 +2,11 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/services.dart';
 import 'package:graduation_project/core/constants.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:graduation_project/features/Auth/presentation/view/login_screen.dart';
 import 'package:graduation_project/features/widgets/nav_bar.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+
+import 'features/Workouts/presentation/view/pose_detector_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
             lightSource: LightSource.topLeft,
             depth: 6,
           ),
-          home: LoginScreen(),
+
+          home: SetUpScreen(),
           debugShowCheckedModeBanner: false,
         );
       },
