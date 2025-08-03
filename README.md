@@ -5,7 +5,7 @@
 
 ---
 
-![FitiFy UI](https://files.fm/u/5h2nfc4dw6)
+![FitiFy UI](https://files.fm/f/mnnxmspx4b)
 
 ##  Why FitiFy?
 
