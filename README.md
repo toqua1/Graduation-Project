@@ -6,8 +6,8 @@
 ---
 
 ![FitiFy UI](lib/assets/UI%20Cover.png)
-![Squat Exercise](lib/assets/Squat.png)
-![Bicep Exercise](lib/assets/Bicep.png)
+<img src="lib/assets/Squat.png" width="30%" alt="Squat Exercise">
+<img src="lib/assets/Bicep.png" width="30%" alt="Bicep Exercise">
 
 ##  Why FitiFy?
 
