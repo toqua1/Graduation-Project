@@ -5,7 +5,9 @@
 
 ---
 
-![FitiFy UI](lib/assets/UI Cover.png)
+![FitiFy UI](lib/assets/UI%20Cover.png)
+![Squat Exercise](lib/assets/Squat.png)
+![Bicep Exercise](lib/assets/Bicep.png)
 
 ##  Why FitiFy?
 
