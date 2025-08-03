@@ -1,9 +1,11 @@
 # FitiFy (Public Clean-Code Demo)
 
-> **Note:** This repository contains a curated subset of **FitiFy**’s Flutter code, focused on illustrating our **clean architecture**, **modular design**, and **best-practice patterns**.  
+> **Note:** This repository contains a curated subset of **FitiFy**’s Flutter code, focused on illustrating my **clean architecture**, **modular design**, and **best-practice patterns**.  
 > The full app—including proprietary AI modules, backend integration & extended feature set—is maintained in a private repository.
 
 ---
+
+![FitiFy UI](https://files.fm/u/5h2nfc4dw6)
 
 ##  Why FitiFy?
 
