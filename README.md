@@ -54,6 +54,3 @@
   - `views/` – Widgets / Screens (Stateless / GetView)  
   - `utils/` – Helpers, theming, and constants  
 
-## ⚡ Quickstart
-
-1. **C
