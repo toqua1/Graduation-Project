@@ -5,7 +5,7 @@
 
 ---
 
-![FitiFy UI](https://files.fm/f/mnnxmspx4b)
+![FitiFy UI](lib/assets/UI Cover.png)
 
 ##  Why FitiFy?
 
