@@ -7,7 +7,8 @@
 
 ![FitiFy UI](lib/assets/UI%20Cover.png)
 <img src="lib/assets/Squat.png" width="30%" alt="Squat Exercise">
-<img src="lib/assets/Bicep.png" width="30%" alt="Bicep Exercise">
+<img src="lib/assets/Bicep.png" width="35%" alt="Bicep Exercise">
+<img src="lib/assets/mockDarkcanva.png" width="32%" alt="App Logo">
 
 ##  Why FitiFy?
 
